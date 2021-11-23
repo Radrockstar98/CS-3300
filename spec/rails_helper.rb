@@ -67,4 +67,9 @@ SimpleCov.start 'rails' do
   add_filter '/db/'
   add_filter '/spec/' # for rspec
 end
+
+    # Add these
+    config.include Devise::Test::ControllerHelpers, :type => :controller
+    config.include FactoryBot::Syntax::Methods
+    config.extend ControllerMacros, :type => :controller
 end

@@ -9,7 +9,26 @@
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
 
-  <body>
-    <%= yield %>
-  </body>
+  <div class="welcome">
+  <% if user_signed_in? %>
+    <h2> Hello, <%=current_user.email%> </h2>
+  <% else %>
+    <h2> Hello there!! </h2>
+  <% end %>
+
+</div>
+
+<body>
+  <%= yield %>
+</body>
+
+<div class="options">
+  <% if user_signed_in? %>
+    <button><%= link_to "logout", destroy_user_session_path, method: :delete %></button>
+  <% else %>
+    <button><%= link_to "login", new_user_session_path %></button>
+    <button><%= link_to "register", new_user_registration_path %></button>
+  <% end %>
+</div>
 </html>
+
