@@ -22,7 +22,7 @@ require 'rspec/rails'
 # directory. Alternatively, in the individual `*_spec.rb` files, manually
 # require only the support files necessary.
 #
-# Dir[Rails.root.join('spec', 'support', '**', '*.rb')].each { |f| require f }
+Dir[Rails.root.join('spec', 'support', '**', '*.rb')].each { |f| require f }
 
 # Checks for pending migrations and applies them before tests are run.
 # If you are not using ActiveRecord, you can remove these lines.
@@ -35,6 +35,10 @@ end
 RSpec.configure do |config|
   # Remove this line if you're not using ActiveRecord or ActiveRecord fixtures
   config.fixture_path = "#{::Rails.root}/spec/fixtures"
+      config.include Devise::Test::ControllerHelpers, :type => :controller
+      config.include FactoryBot::Syntax::Methods
+      config.extend ControllerMacros, :type => :controller
+      config.include Devise::Test::IntegrationHelpers, :type => :feature
 
   # If you're not using ActiveRecord, or you'd prefer not to run each of your
   # examples within a transaction, remove the following line or assign false
@@ -67,9 +71,4 @@ SimpleCov.start 'rails' do
   add_filter '/db/'
   add_filter '/spec/' # for rspec
 end
-
-    # Add these
-    config.include Devise::Test::ControllerHelpers, :type => :controller
-    config.include FactoryBot::Syntax::Methods
-    config.extend ControllerMacros, :type => :controller
 end

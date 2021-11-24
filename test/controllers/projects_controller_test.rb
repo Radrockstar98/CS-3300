@@ -46,3 +46,4 @@ class ProjectsControllerTest < ActionDispatch::IntegrationTest
     assert_redirected_to projects_url
   end
 end
+
