@@ -6,7 +6,6 @@ RSpec.describe Project, type: :model do
       project = Project.new(description: "Content of the description") # the new description 
       expect(project.valid?).to eq(false) # expect to to be false and true if there is a description
     end
-
     
     it "should be able to save project" do # it should be able to save on the event there is a description 
       project = Project.new(title: "Title", description: "Some description content goes here") # the description goes here
@@ -15,15 +14,12 @@ RSpec.describe Project, type: :model do
   end
 
   context "scopes tests" do
-
   end
 end
 
 require "rails_helper"
 #  to descripe a project
 RSpec.describe Project, type: :model do
-  # ...
-
   context "scopes tests" do
     let(:params) { { title: "Title", description: "some description" } } # the params are title and description 
     before(:each) do

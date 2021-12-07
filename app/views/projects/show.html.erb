@@ -1,14 +1,19 @@
+<title> <%= @project.title%> </title>
 <p id="notice"><%= notice %></p>
 
-<p>
-  <strong>Title:</strong>
-  <%= @project.title %>
-</p>
+<div class="container text-center font-weight-bold font-size: 20px">
+  <p>
+    <strong>Title:</strong>
+    <%= @project.title %>
+  </p>
 
-<p>
-  <strong>Description:</strong>
-  <%= @project.description %>
-</p>
+  <p>
+    <strong>Description:</strong>
+    <%= @project.description %>
+  </p>
 
-<%= link_to 'Edit', edit_project_path(@project) %> |
-<%= link_to 'Back', projects_path %>
+
+  <div class="container-fluid-nav text-center font-weight-bold font-size: 20px">
+    <a> <%= link_to 'Home', projects_path, :class => 'btn btn-light'%> </a>
+     <a> <%= link_to 'Edit', edit_project_path(@project), :class => 'btn btn-light' %> </a> 
+  </div>

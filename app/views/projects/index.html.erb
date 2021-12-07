@@ -1,29 +1,59 @@
-<p id="notice"><%= notice %></p>
+<div class="container-fluid-nav text-center font-weight-bold font-size: 20px">
+  <p style="color: red; font-size: 26px" id="notice"><%= notice %></p>
 
-<h1>Projects</h1>
+  <div class="title text-danger">
+      <h1 style="font-family: 'Fantasy', monospace; ">Projects</h1>
+    </div>
+</div>
 
-<table>
-  <thead>
-    <tr>
-      <th>Title</th>
-      <th>Description</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
 
-  <tbody>
-    <% @projects.each do |project| %>
-      <tr>
-        <td><%= project.title %></td>
-        <td><%= project.description %></td>
-        <td><%= link_to 'Show', project %></td>
-        <td><%= link_to 'Edit', edit_project_path(project) %></td>
-        <td><%= link_to 'Destroy', project, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
+<div class="card">
+  <table> 
+    <tr> <h2 class="d-flex justify-content-center font-weight-bold"> Chad Bowman </h2> </tr>
+    <div class="d-flex  justify-content-center mt-4"> <%= image_tag "profilepic.jpg", height: 350, width: 350 %>
+    </div>
+    <tr> <p class="text-center font-weight-bold"> A senior at the University of Colorado, Colorado Springs (UCCS), studying Computer Science and a minor in Computer Engineering</p> </tr>
+    <tr> <p class="text-center font-weight-bold"> Fields of interest include: Game Development, Cloud Computing, Artificial Intelligence, and Robotic Prosthetics </p>
+    <tr> <p class="text-center"> Currently applying for Software Development internships </p> </tr>
+  </table>
+
+  <div class="d-flex flex-column">
+    <%= link_to "Go to my LinkedIn", "https://www.linkedin.com/in/chad-bowman-a50319191/", :class => 'btn btn-warning font-weight-bold' %>
+  </div>
+
+  <div class="d-flex flex-column">
+    <%= link_to "Go to my Github Repo", "https://www.github.com/Radrockstar98", :class => 'btn btn-warning font-weight-bold' %>
+  </div>
+</div>
+
+
+<div class="container text-left font-weight-bold">
+  <table class="table">
+    <thead>
+              
+        <% @projects.each do |project| %>
+          <tr>
+          <div class="card" >
+            <div class="card-body" >
+              <h5 class="card-title d-flex justify-content-center"> <%= project.title %> </h5>
+              <p class="card-text d-flex justify-content-center"> <%= project.description %> </p>    
+          </div>
+          
+          <div class="d-flex justify-content-center" >
+              <%= link_to 'Show', project , :class => 'btn btn-outline-primary font-weight-bold'%>
+              <div class="ml-2 mr-2"><%= link_to 'Edit', edit_project_path(project), :class => 'btn btn-outline-success font-weight-bold'%></div>
+              <%= link_to 'Destroy', project, method: :delete, data: { confirm: 'The deletion is permanent. Continue?' }, :class => 'btn btn-outline-danger font-weight-bold' %>
+              
+          </div>
+          </tr>
+        <% end %>
+      
+    </thead>
+  </table>
+</div>
 
 <br>
 
-<%= link_to 'New Project', new_project_path %>
+<div class="container-fluid-nav text-center">
+  <button type="button" class="btn btn-light btn-lg font-weight-bold" > <%= link_to 'New Project', new_project_path %> </button>
+</div>  
